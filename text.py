@@ -1,17 +1,17 @@
 def text_libs(libs_dictionary):
-
-    text = f'''
-    In order to do your laundry, first you have to {libs_dictionary['verb_1']} your clothes.
-    Then you have to {libs_dictionary['verb_2']} the {libs_dictionary['verb_3']} machine.
-    Take your time not to {libs_dictionary['verb_4']} any items that may be gross.
-    Separate your {libs_dictionary['plural_noun_1']} from your {libs_dictionary['plural_noun_2']} and then load the {libs_dictionary['verb_5']} machine.
-    Make sure not to mix the {libs_dictionary['plural_color_1']} with the {libs_dictionary['plural_color_2']}.
-    Set temperature to {libs_dictionary['number_1']} and begin the cycle.
-    After that is finished, {libs_dictionary['verb_6']} your clothes and {libs_dictionary['verb_7']} them in the dryer.
-    Set the temperature and {libs_dictionary['verb_8']} the dryer.
-    After about {libs_dictionary['number_2']} minutes, it should be complete!
-    Now all you have to do is {libs_dictionary['verb_9']} your clothes and you are all set!
-    {libs_dictionary['adjective_1']} laundry!
-    '''
     
+    text = f'''
+    In order to do your laundry, first you have to {libs_dictionary[1]['word']} your clothes.
+    Then you have to {libs_dictionary[2]['word']} the {libs_dictionary[3]['word']} machine.
+    Take your time not to {libs_dictionary[4]['word']} any items that may be gross.
+    Separate your {libs_dictionary[5]['word']} from your {libs_dictionary[6]['word']} and then load the {libs_dictionary[7]['word']} machine.
+    Make sure not to mix the {libs_dictionary[8]['word']} with the {libs_dictionary[9]['word']}.
+    Set temperature to {libs_dictionary[10]['word']} and begin the cycle.
+    After that is finished, {libs_dictionary[11]['word']} your clothes and {libs_dictionary[12]['word']} them in the dryer.
+    Set the temperature and {libs_dictionary[13]['word']} the dryer.
+    After about {libs_dictionary[14]['word']} minutes, it should be complete!
+    Now all you have to do is {libs_dictionary[15]['word']} your clothes and you are all set!
+    {libs_dictionary[16]['word']} laundry!
+    '''
+
     return text
