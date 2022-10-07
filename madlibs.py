@@ -5,7 +5,9 @@ from text import text_libs
 
 print(logo['madlibs'])
 
-# dicitonary for handling data
+# Madlibs data. Keys are id that represents the number of each keyword to replace.
+# Value is dictionary containing details of keyword(such as the word itself) and
+# used for validation of user input.
 libs = {
     1: {
         'category': 'verb', 'word': '___', 'validation': str.isalpha
@@ -57,21 +59,30 @@ libs = {
     },
 }
 
-print("    (Enter 'q' to quit.)")
-for id, details in libs.items():
-    # loop through key-value and update the value of word(key)
-    # if input is valid(update the dictionary then break out of loop),
-    # if not valid then ask the user again for an input
-    while True:
-        user_input = input(f"    Enter {details['category']}: ")
-        if user_input == 'q':
-            sys.exit()
-        else:
-            if details['validation'](user_input):
-                libs[id]['word'] = user_input.upper()
-                break
+def run_madlibs():
+    """Run the game."""
+    print("    (Enter 'q' to quit.)")
+    
+    # Loop through id and details of the data.
+    for id, details in libs.items():
+        while True:
+            # Ask the user to enter a required keyword.
+            user_input = input(f"    {details['category'].title()}: ")
+            # End the game when the user enter the 'q' character. 
+            if user_input == 'q':
+                sys.exit()
+            else:
+                # If user input is valid, save it with uppercase characters.q
+                if details['validation'](user_input):
+                    libs[id]['word'] = user_input.upper()
+                    break
+            # If user input is invalid, inform the user.
+            print('    Invalid input.')
 
-        print('    Invalid input.')
+    print(logo['title'])
+    print(text_libs(libs))
 
-print(logo['title'])
-print(text_libs(libs))
+try:
+    run_madlibs()
+except KeyboardInterrupt:
+    sys.exit()
