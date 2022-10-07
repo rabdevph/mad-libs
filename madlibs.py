@@ -16,7 +16,7 @@ libs = {
         'category': 'verb', 'word': '___', 'validation': str.isalpha
     },
     3: {
-        'category': 'verb, ending in -ing', 'word': '___', 'validation': str.isalpha
+        'category': 'verb, ending with -ing', 'word': '___', 'validation': str.isalpha
     },
     4: {
         'category': 'verb',  'word': '___', 'validation': str.isalpha
@@ -28,7 +28,7 @@ libs = {
         'category': 'plural noun', 'word': '___', 'validation': str.isalpha
     },
     7: {
-        'category': 'verb, ending in -ing', 'word': '___', 'validation': str.isalpha
+        'category': 'verb, ending with -ing', 'word': '___', 'validation': str.isalpha
     },
     8: {
         'category': 'plural color', 'word': '___', 'validation': str.isalpha
@@ -67,7 +67,7 @@ def run_madlibs():
     for id, details in libs.items():
         while True:
             # Ask the user to enter a required keyword.
-            user_input = input(f"    {details['category'].title()}: ")
+            user_input = input(f"    {details['category'].capitalize()}: ")
             # End the game when the user enter the 'q' character. 
             if user_input == 'q':
                 sys.exit()
