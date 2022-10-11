@@ -15,7 +15,7 @@ def replace_keyword(key_word, new_key_word, text):
 
 print(logo['madlibs'])
 
-# Load content from other module
+# Load content from other module.
 content = libs['laundry']
 
 # Make a regular expression for the keywords
@@ -25,25 +25,33 @@ find_keyword = re.compile(
 # Store all the matches in a list.
 found_keywords = find_keyword.findall(content)
 
-# Loop through found keywords, then ask the user
-# for an input to replace the keywords.
-for i, keyword in enumerate(found_keywords):
-    while True:
-        new_keyword = input(f"{keyword}: ")
-        # Quit program when user input 'q' or 'Q'.
-        if new_keyword.upper() == 'Q':
-            sys.exit()
-        else:
-            # Check keyword for input validation(string or digit).
-            if (keyword in found_keywords) and (keyword != 'NUMBER') and (new_keyword.isalpha()):
-                content = replace_keyword(keyword, new_keyword, content)
-                break
-            elif (keyword in found_keywords) and (keyword == 'NUMBER') and (new_keyword.isdigit()):
-                content = replace_keyword(keyword, new_keyword, content)
-                break
-        # Input is invalid.
-        print('Invalid input.')
+def run_game():
+    global content
+    # Loop through found keywords, then ask the user
+    # for an input to replace the keywords.
+    for i, keyword in enumerate(found_keywords):
+        while True:
+            new_keyword = input(f"    {keyword}: ")
+            # Quit program when user input 'q' or 'Q'.
+            if new_keyword.upper() == 'Q':
+                sys.exit()
+            else:
+                # Check keyword for input validation(string or digit).
+                if (keyword in found_keywords) and (keyword != 'NUMBER') and (new_keyword.isalpha()):
+                    new_content = replace_keyword(keyword, new_keyword, content)
+                    content = new_content
+                    break
+                elif (keyword in found_keywords) and (keyword == 'NUMBER') and (new_keyword.isdigit()):
+                    new_content = replace_keyword(keyword, new_keyword, content)
+                    content = new_content
+                    break
+            # Input is invalid.
+            print('    Invalid input.')
 
+    print(logo['laundry'])
+    print(content)
 
-print(logo['title'])
-print(content)
+try:
+    run_game()
+except KeyboardInterrupt:
+    sys.exit()
